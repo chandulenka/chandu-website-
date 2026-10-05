@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f9fc">
+  <meta name="description" content="Chandu's Web brings useful apps, games, and everyday services together in one place.">
+  <title>Chandu's Web | Everything You Need, One Place</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Chandu's Web home">
+      <span class="brand-mark" aria-hidden="true">CW</span>
+      <span>Chandu's Web</span>
+    </a>
+    <p class="tagline">A website by your friend Chandu where you can get info about everything you use in life without searching other AIs ✨</p>
+    <label class="searchbox" for="q">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4.5 4.5"></path></svg>
+      <input id="q" type="search" autocomplete="off" placeholder="Search Movies, AI, Jobs, Games, Food..." aria-label="Search categories and apps">
+      <kbd>/</kbd>
+    </label>
+    <div class="help-widget" id="helpWidget">
+      <button class="help-button" id="helpBtn" type="button" aria-label="Open Chandu's contact card" title="Open contact card" aria-expanded="false" aria-controls="contactPanel"><span class="help-icon" id="helpIcon" aria-hidden="true">🤖</span></button>
+      <section class="contact-popover" id="contactPanel" aria-labelledby="contactTitle" hidden>
+        <p class="eyebrow">SAY HELLO</p>
+        <h2 id="contactTitle">Hi guys, this is Chandu.</h2>
+        <p class="contact-message">I build websites. Message me on WhatsApp.</p>
+        <p class="contact-phone">7013641726</p>
+        <a class="whatsapp-link" href="https://wa.me/917013641726" target="_blank" rel="noopener noreferrer">Message on WhatsApp <span aria-hidden="true">↗</span></a>
+      </section>
+    </div>
+  </header>
+
+  <main id="top">
+    <nav class="chip-strip" id="chips" aria-label="Filter categories"></nav>
+
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> YOUR EVERYDAY WEB DIRECTORY</p>
+        <h1 id="heroTitle">Everything You Need, <span>One Place</span></h1>
+        <p class="hero-subtitle">35 Categories • 250+ Apps • 30+ Games • AI Tools • Photo/Video Editing • Ultra HD Swag</p>
+        <a class="hero-link" href="#browse">Find your next useful thing <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit-core"><span>✦</span></div>
+        <span class="float-tile tile-ai">✧ AI</span>
+        <span class="float-tile tile-play">▶ PLAY</span>
+        <span class="float-tile tile-go">↗ GO</span>
+        <span class="spark spark-one">✳</span>
+        <span class="spark spark-two">✦</span>
+      </div>
+    </section>
+
+    <section class="directory-section" id="browse" aria-labelledby="browseTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">A GOOD PLACE TO START</p>
+          <h2 id="browseTitle">Browse Categories</h2>
+        </div>
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+      </div>
+      <div class="grid" id="grid" aria-live="polite"></div>
+    </section>
+
+    <section class="games-section local-games-section" aria-labelledby="localGamesTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MADE HERE, PLAY HERE</p>
+          <h2 id="localGamesTitle">Chandu's Web Arcade</h2>
+        </div>
+        <span class="games-note">Four free games, right here on this page</span>
+      </div>
+      <div class="grid game-grid local-game-grid" id="localGames"></div>
+    </section>
+
+    <section class="games-section" aria-labelledby="gamesTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">TAKE A QUICK BREAK</p>
+          <h2 id="gamesTitle">30+ Games Zone</h2>
+        </div>
+        <span class="games-note">Pick a game and play in your browser <span aria-hidden="true">↗</span></span>
+      </div>
+      <div class="grid game-grid" id="ggames"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#top">Chandu's Web <span>↗</span></a>
+    <p>Made with ❤️ by your friend Chandu - Vizag | 7013641726 - Website making available</p>
+    <a class="back-top" href="#top" aria-label="Back to top">↑</a>
+  </footer>
+
+  <div id="detail" class="detail-view" style="position:fixed;top:0;left:0;width:100%;height:100%;background:white;z-index:20;transform:translateX(100%);transition:.35s;overflow-y:auto" aria-hidden="true">
+    <div class="detail-topbar">
+      <button id="backBtn" class="icon-button back-button" type="button"><span aria-hidden="true">←</span> Back</button>
+      <span class="detail-kicker">CATEGORY DIRECTORY</span>
+      <span class="detail-spacer"></span>
+    </div>
+    <div class="detail-content-wrap">
+      <p class="eyebrow" id="dEyebrow">EXPLORE</p>
+      <h2 id="dTitle"></h2>
+      <div id="dContent"></div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal-backdrop" style="display:none;position:fixed;inset:0;background:rgba(10,24,36,.54);z-index:30;justify-content:center;align-items:flex-end" role="dialog" aria-modal="true" aria-labelledby="mName">
+    <section class="app-sheet">
+      <div class="sheet-grab" aria-hidden="true"></div>
+      <div class="sheet-heading">
+        <div class="app-monogram" id="mIcon" aria-hidden="true">↗</div>
+        <div><p class="eyebrow" id="mCategory">APP DETAILS</p><h3 id="mName"></h3></div>
+        <button id="mClose" class="icon-button close-button" type="button" aria-label="Close app details">×</button>
+      </div>
+      <div class="app-facts">
+        <p id="mRating"></p>
+        <p id="mUsage"></p>
+        <p id="mDomain"></p>
+        <p id="mInfo"></p>
+      </div>
+      <button id="mOpen" class="primary-button" type="button">Open app <span aria-hidden="true">↗</span></button>
+    </section>
+  </div>
+
+  <div id="frameView" class="frame-viewer" style="display:none;position:fixed;inset:0;background:white;z-index:40">
+    <header class="frame-header">
+      <div class="frame-brand"><span class="brand-mark" aria-hidden="true">CW</span><h3 id="fTitle"></h3></div>
+      <div class="frame-actions">
+        <button id="fNewTab" class="icon-button frame-new-tab" type="button" aria-label="Open in a new tab" title="Open in a new tab">↗</button>
+        <button id="fClose" class="icon-button close-button" type="button" aria-label="Close viewer" title="Close viewer">×</button>
+      </div>
+    </header>
+    <iframe id="frame" title="App or game viewer" style="width:100%;height:calc(100% - 60px);border:none" referrerpolicy="strict-origin-when-cross-origin" allow="fullscreen; autoplay; clipboard-read; clipboard-write"></iframe>
+  </div>
+
+  <div id="localGameView" class="local-game-view" style="display:none;position:fixed;inset:0;background:#f5f9f8;z-index:40" aria-hidden="true">
+    <header class="local-game-header">
+      <a class="frame-brand" href="#top" aria-label="Chandu's Web home"><span class="brand-mark" aria-hidden="true">CW</span><span class="local-game-brand">Chandu's Web Arcade</span></a>
+      <h2 id="localGameTitle"></h2>
+      <button id="localGameClose" class="icon-button close-button" type="button" aria-label="Close game">×</button>
+    </header>
+    <div id="localGameContent" class="local-game-content"></div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="games.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
